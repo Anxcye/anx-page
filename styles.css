@@ -173,10 +173,13 @@ nav ul li a:hover {
 .download-buttons {
     display: flex;
     gap: 15px;
+    align-items: center;
 }
 
-.app-store-button img {
+.download-buttons img {
     height: 50px;
+    width: auto;
+    object-fit: contain;
 }
 
 .hero-image {
