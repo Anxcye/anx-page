@@ -26,7 +26,7 @@ const { t } = useI18n()
       </div>
       
       <div class="footer-bottom">
-        <p>&copy; 2024 Anx Reader. Made with ❤️ by anxcye</p>
+        <p>&copy; 2025 Anx Reader. Made with ❤️ by Anxcye</p>
       </div>
     </div>
   </footer>
