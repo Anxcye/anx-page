@@ -8,69 +8,9 @@ const { locale } = useI18n()
   <div class="policy-page">
     <div class="container">
       <div class="policy-container">
-        <div v-if="locale === 'en'" class="policy-content">
-          <h1>Terms of Service</h1>
-          <p><strong>Effective Date: March 18, 2025</strong></p>
-          <hr>
 
-          <h2>1. Acceptance of Terms</h2>
-          <p>Welcome to <strong>Anx Reader</strong> (the "Software"). By using this Software, you agree to comply with these
-            terms and the Privacy Policy. The Software is licensed under the MIT License.</p>
 
-          <h2>2. Software License</h2>
-          <p>Under the MIT License, you are granted the right to:</p>
-          <ul>
-            <li>Use, copy, modify, merge, publish, and distribute the Software for any purpose (commercial or
-              non-commercial).</li>
-            <li>Alter the source code and distribute modified versions.</li>
-          </ul>
-          <p><strong>Conditions</strong>:</p>
-          <ul>
-            <li>The original copyright notice and permission statement must remain intact.</li>
-            <li>You may not use the developer's name or branding for promotion without written consent.</li>
-            <li>Modified versions must clearly indicate changes made.</li>
-          </ul>
-
-          <h2>3. User Responsibilities</h2>
-          <ul>
-            <li>You assume all risks associated with using the Software. The developer provides no warranties, expressed or
-              implied, regarding functionality, security, or suitability.</li>
-            <li>You must comply with applicable laws and refrain from using the Software for unlawful activities.</li>
-          </ul>
-
-          <h2>4. Privacy Protection</h2>
-          <ul>
-            <li>The Software <strong>does not collect, store, or transmit any user data</strong> (personal or non-personal).
-              See the Privacy Policy for details.</li>
-            <li>Third-party services (e.g., operating systems, device manufacturers) may independently collect data. The
-              developer is not liable for such practices. Review third-party privacy policies for clarity.</li>
-          </ul>
-
-          <h2>5. Disclaimer of Warranties</h2>
-          <ul>
-            <li>The Software is provided "AS-IS." The developer disclaims all warranties, including implied warranties of
-              merchantability or fitness for a particular purpose.</li>
-            <li>The developer is not liable for direct, indirect, incidental, or consequential damages arising from Software
-              use.</li>
-          </ul>
-
-          <h2>6. Changes to Terms</h2>
-          <p>The developer reserves the right to update these terms. Changes will be posted here, and continued use of the
-            Software constitutes acceptance of revised terms.</p>
-
-          <h2>7. Termination</h2>
-          <p>You may cease using the Software at any time. The developer may terminate your license if you violate these
-            terms, though MIT License rights for already distributed Software remain unaffected.</p>
-
-          <h2>8. Governing Law</h2>
-          <p>These terms are governed by the laws of the developer's jurisdiction. Disputes shall be resolved in courts with
-            jurisdiction over the developer's location.</p>
-
-          <h2>9. Contact Us</h2>
-          <p>For questions, contact: <a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
-        </div>
-
-        <div v-else class="policy-content">
+        <div v-if="locale === 'zh-CN'" class="policy-content">
           <h1>服务条款</h1>
           <p><strong>生效日期：2025年3月18日</strong></p>
           <hr>
@@ -121,6 +61,74 @@ const { locale } = useI18n()
 
           <h2>9. 联系我们</h2>
           <p>如有疑问，请联系：<a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
+        </div>
+        <div v-else class="policy-content">
+          <h1>Terms of Service</h1>
+          <p><strong>Effective Date: March 18, 2025</strong></p>
+          <hr>
+
+          <h2>1. Acceptance of Terms</h2>
+          <p>Welcome to <strong>Anx Reader</strong> (the "Software"). By using this Software, you agree to comply with
+            these
+            terms and the Privacy Policy. The Software is licensed under the MIT License.</p>
+
+          <h2>2. Software License</h2>
+          <p>Under the MIT License, you are granted the right to:</p>
+          <ul>
+            <li>Use, copy, modify, merge, publish, and distribute the Software for any purpose (commercial or
+              non-commercial).</li>
+            <li>Alter the source code and distribute modified versions.</li>
+          </ul>
+          <p><strong>Conditions</strong>:</p>
+          <ul>
+            <li>The original copyright notice and permission statement must remain intact.</li>
+            <li>You may not use the developer's name or branding for promotion without written consent.</li>
+            <li>Modified versions must clearly indicate changes made.</li>
+          </ul>
+
+          <h2>3. User Responsibilities</h2>
+          <ul>
+            <li>You assume all risks associated with using the Software. The developer provides no warranties, expressed
+              or
+              implied, regarding functionality, security, or suitability.</li>
+            <li>You must comply with applicable laws and refrain from using the Software for unlawful activities.</li>
+          </ul>
+
+          <h2>4. Privacy Protection</h2>
+          <ul>
+            <li>The Software <strong>does not collect, store, or transmit any user data</strong> (personal or
+              non-personal).
+              See the Privacy Policy for details.</li>
+            <li>Third-party services (e.g., operating systems, device manufacturers) may independently collect data. The
+              developer is not liable for such practices. Review third-party privacy policies for clarity.</li>
+          </ul>
+
+          <h2>5. Disclaimer of Warranties</h2>
+          <ul>
+            <li>The Software is provided "AS-IS." The developer disclaims all warranties, including implied warranties
+              of
+              merchantability or fitness for a particular purpose.</li>
+            <li>The developer is not liable for direct, indirect, incidental, or consequential damages arising from
+              Software
+              use.</li>
+          </ul>
+
+          <h2>6. Changes to Terms</h2>
+          <p>The developer reserves the right to update these terms. Changes will be posted here, and continued use of
+            the
+            Software constitutes acceptance of revised terms.</p>
+
+          <h2>7. Termination</h2>
+          <p>You may cease using the Software at any time. The developer may terminate your license if you violate these
+            terms, though MIT License rights for already distributed Software remain unaffected.</p>
+
+          <h2>8. Governing Law</h2>
+          <p>These terms are governed by the laws of the developer's jurisdiction. Disputes shall be resolved in courts
+            with
+            jurisdiction over the developer's location.</p>
+
+          <h2>9. Contact Us</h2>
+          <p>For questions, contact: <a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
         </div>
       </div>
     </div>
@@ -211,15 +219,15 @@ const { locale } = useI18n()
   .policy-container {
     padding: 40px 20px;
   }
-  
+
   .policy-content h1 {
     font-size: 36px;
   }
-  
+
   .policy-content h2 {
     font-size: 20px;
   }
-  
+
   .policy-content p,
   .policy-content li {
     font-size: 14px;
