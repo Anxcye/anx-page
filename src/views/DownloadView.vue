@@ -41,11 +41,6 @@ const platforms = [
     icon: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 12V6.75l6-1.32v6.48L3 12m17-9v8.75l-10 .15V5.21L20 3M3 13l6 .09v6.81l-6-1.15V13m17 .25V22l-10-1.91V13.1l10 .15Z"/></svg>`
   }
 ]
-
-const downloadFile = (endpoint: string) => {
-  const url = `https://api.anx.anxcye.com/api/latest/${endpoint}`
-  window.open(url, '_blank')
-}
 </script>
 
 <template>
@@ -87,17 +82,18 @@ const downloadFile = (endpoint: string) => {
             </div>
             
             <div class="platform-variants">
-              <button 
+              <a 
                 v-for="variant in platform.variants" 
                 :key="variant.endpoint"
-                @click="downloadFile(variant.endpoint)"
+                :href="`https://api.anx.anxcye.com/api/latest/${variant.endpoint}`"
+                download
                 class="download-button"
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
                 {{ variant.name }}
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -225,6 +221,7 @@ const downloadFile = (endpoint: string) => {
   transition: var(--transition);
   font-size: 14px;
   font-weight: 500;
+  text-decoration: none;
 }
 
 .download-button:hover {
