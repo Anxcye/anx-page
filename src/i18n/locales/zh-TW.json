@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "首頁",
+    "download": "下載",
+    "privacy": "隱私政策",
+    "terms": "服務條款"
+  },
+  "hero": {
+    "title": "Anx Reader",
+    "subtitle": "極致閱讀體驗",
+    "description": "強大、優雅、功能豐富的電子書閱讀器，重新定義您的數位閱讀之旅。",
+    "download": "立即下載",
+    "github": "GitHub",
+    "appStore": "在 App Store 下載"
+  },
+  "features": {
+    "title": "功能特色",
+    "bookshelf": {
+      "title": "優雅的書架設計",
+      "description": "簡潔精緻的介面，讓您的數位書庫井然有序。透過可自訂的收藏夾組織您的圖書，享受視覺愉悅的閱讀環境。"
+    },
+    "personalize": {
+      "title": "個人化閱讀",
+      "description": "定製專屬閱讀體驗，從字體到主題，盡在掌控。調整文字大小、行間距、頁邊距，並從明亮、暗黑或棕褐色主題中選擇，減輕眼睛疲勞。"
+    },
+    "analytics": {
+      "title": "數據洞察",
+      "description": "追蹤您的閱讀進度，透過詳細統計了解您的閱讀習慣。監控您的閱讀速度、花費時間和完成率，以改善您的閱讀習慣。"
+    },
+    "notes": {
+      "title": "劃線筆記",
+      "description": "輕鬆標記重點，回顧關鍵見解。建立彩色標記，新增詳細筆記，並匯出您的註釋以供參考或分享。"
+    },
+    "aiChat": {
+      "title": "AI 對話",
+      "description": "與您的書籍互動，獲取深度見解和解答。詢問內容相關問題，獲取摘要，並透過我們由多種模型支援的智慧AI助手探索主題。"
+    },
+    "contextMenu": {
+      "title": "便捷操作",
+      "description": "強大的上下文選單，讓操作更加直觀高效。透過簡單的長按手勢，存取詞典定義、翻譯、網路搜尋等功能。"
+    },
+    "customization": {
+      "title": "全面定製",
+      "description": "超豐富的樣式設定，打造專屬閱讀環境。透過進階排版控制和版面選項，精細調整閱讀體驗的每個方面。"
+    },
+    "sync": {
+      "title": "無縫同步",
+      "description": "資料與筆記隨處可得，跨裝置無縫銜接。透過安全的雲端整合，保持您的圖書館、閱讀進度、書籤和註釋同步。"
+    }
+  },
+  "download": {
+    "title": "下載 Anx Reader",
+    "subtitle": "選擇您的平台",
+    "appStore": {
+      "title": "App Store",
+      "description": "官方發佈版，自動更新",
+      "button": "在 App Store 下載"
+    },
+    "direct": {
+      "title": "直接下載",
+      "description": "最新版本，適合進階使用者",
+      "note": "注意：iOS 和 macOS 版本需要手動簽署或開發者帳戶"
+    },
+    "platforms": {
+      "android": "Android",
+      "ios": "iOS",
+      "macos": "macOS",
+      "windows": "Windows"
+    }
+  },
+  "footer": {
+    "description": "用 Anx Reader 重新定義您的閱讀體驗",
+    "links": {
+      "github": "GitHub",
+      "privacy": "隱私政策",
+      "terms": "服務條款"
+    }
+  }
+}

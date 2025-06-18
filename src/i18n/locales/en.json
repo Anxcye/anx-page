@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "Home",
+    "download": "Download",
+    "privacy": "Privacy",
+    "terms": "Terms"
+  },
+  "hero": {
+    "title": "Anx Reader",
+    "subtitle": "The Ultimate Reading Experience",
+    "description": "A powerful, elegant, and feature-rich e-book reader that transforms your digital reading journey.",
+    "download": "Download",
+    "github": "GitHub",
+    "appStore": "Download on the App Store"
+  },
+  "features": {
+    "title": "Features",
+    "bookshelf": {
+      "title": "Elegant Bookshelf Design",
+      "description": "Clean and refined interface for your digital library. Organize your books with customizable collections and enjoy a visually pleasing reading environment."
+    },
+    "personalize": {
+      "title": "Personalized Reading",
+      "description": "Customize your reading experience from fonts to themes. Adjust text size, line spacing, margins, and choose from light, dark, or sepia themes to reduce eye strain."
+    },
+    "analytics": {
+      "title": "Data Insights",
+      "description": "Track your reading progress and understand your habits with detailed statistics. Monitor your reading speed, time spent, and completion rates to improve your reading habits."
+    },
+    "notes": {
+      "title": "Highlights & Notes",
+      "description": "Easily mark important points and review key insights. Create color-coded highlights, add detailed notes, and export your annotations for reference or sharing."
+    },
+    "aiChat": {
+      "title": "AI Conversation",
+      "description": "Interact with your books to gain deeper insights. Ask questions about the content, get summaries, and explore themes with our intelligent AI assistant powered by multiple models."
+    },
+    "contextMenu": {
+      "title": "Convenient Operations",
+      "description": "Powerful context menu for intuitive and efficient actions. Access dictionary definitions, translations, web search, and more with a simple long-press gesture."
+    },
+    "customization": {
+      "title": "Complete Customization",
+      "description": "Rich style settings to create your perfect reading environment. Fine-tune every aspect of your reading experience with advanced typography controls and layout options."
+    },
+    "sync": {
+      "title": "Seamless Synchronization",
+      "description": "Access your data and notes anywhere across all your devices. Keep your library, reading progress, bookmarks, and annotations in sync with secure cloud integration."
+    }
+  },
+  "download": {
+    "title": "Download Anx Reader",
+    "subtitle": "Choose your platform",
+    "appStore": {
+      "title": "App Store",
+      "description": "Official release with automatic updates",
+      "button": "Download on the App Store"
+    },
+    "direct": {
+      "title": "Direct Download",
+      "description": "Latest version for advanced users",
+      "note": "Note: iOS and macOS versions require manual signing or developer account"
+    },
+    "platforms": {
+      "android": "Android",
+      "ios": "iOS",
+      "macos": "macOS",
+      "windows": "Windows"
+    }
+  },
+  "footer": {
+    "description": "Transform your reading experience with Anx Reader",
+    "links": {
+      "github": "GitHub",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
+    }
+  }
+}

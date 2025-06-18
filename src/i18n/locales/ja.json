@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "home": "ホーム",
+    "download": "ダウンロード",
+    "privacy": "プライバシー",
+    "terms": "利用規約"
+  },
+  "hero": {
+    "title": "Anx Reader",
+    "subtitle": "究極の読書体験",
+    "description": "パワフルでエレガント、機能豊富な電子書籍リーダーで、デジタル読書の旅を変革します。",
+    "download": "ダウンロード",
+    "github": "GitHub",
+    "appStore": "App Storeでダウンロード"
+  },
+  "features": {
+    "title": "機能",
+    "bookshelf": {
+      "title": "エレガントな本棚デザイン",
+      "description": "デジタルライブラリのためのクリーンで洗練されたインターフェース。カスタマイズ可能なコレクションで本を整理し、視覚的に美しい読書環境をお楽しみください。"
+    },
+    "personalize": {
+      "title": "パーソナライズされた読書",
+      "description": "フォントからテーマまで、読書体験をカスタマイズ。テキストサイズ、行間、余白を調整し、明るい、暗い、またはセピアテーマから選択して眼精疲労を軽減。"
+    },
+    "analytics": {
+      "title": "データインサイト",
+      "description": "読書の進捗を追跡し、詳細な統計で習慣を理解。読書速度、費やした時間、完了率を監視して読書習慣を改善。"
+    },
+    "notes": {
+      "title": "ハイライト＆ノート",
+      "description": "重要なポイントを簡単にマークし、重要な洞察を確認。カラーコード化されたハイライトを作成し、詳細なノートを追加し、参考や共有のために注釈をエクスポート。"
+    },
+    "aiChat": {
+      "title": "AI対話",
+      "description": "本と対話してより深い洞察を得る。コンテンツについて質問し、要約を取得し、複数のモデルで動作する知的AIアシスタントでテーマを探索。"
+    },
+    "contextMenu": {
+      "title": "便利な操作",
+      "description": "直感的で効率的なアクションのための強力なコンテキストメニュー。長押しジェスチャーで辞書定義、翻訳、ウェブ検索などにアクセス。"
+    },
+    "customization": {
+      "title": "完全なカスタマイゼーション",
+      "description": "完璧な読書環境を作るための豊富なスタイル設定。高度なタイポグラフィ制御とレイアウトオプションで読書体験のあらゆる側面を微調整。"
+    },
+    "sync": {
+      "title": "シームレスな同期",
+      "description": "すべてのデバイスでデータとノートにどこからでもアクセス。安全なクラウド統合でライブラリ、読書進捗、ブックマーク、注釈を同期。"
+    }
+  },
+  "download": {
+    "title": "Anx Readerをダウンロード",
+    "subtitle": "プラットフォームを選択",
+    "appStore": {
+      "title": "App Store",
+      "description": "公式リリース、自動更新",
+      "button": "App Storeでダウンロード"
+    },
+    "direct": {
+      "title": "直接ダウンロード",
+      "description": "上級ユーザー向けの最新版",
+      "note": "注意：iOSとmacOSバージョンは手動署名または開発者アカウントが必要"
+    },
+    "platforms": {
+      "android": "Android",
+      "ios": "iOS",
+      "macos": "macOS",
+      "windows": "Windows"
+    }
+  },
+  "footer": {
+    "description": "Anx Readerで読書体験を変革",
+    "links": {
+      "github": "GitHub",
+      "privacy": "プライバシーポリシー",
+      "terms": "利用規約"
+    }
+  }
+}
