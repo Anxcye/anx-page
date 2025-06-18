@@ -24,6 +24,18 @@ const router = createRouter({
       name: 'terms',
       component: () => import('../views/TermsView.vue'),
     },
+    {
+      path: '/term.html',
+      redirect: '/terms'
+    },
+    {
+      path: '/privacy.html',
+      redirect: '/privacy'
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    }
   ],
   scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
