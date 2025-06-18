@@ -47,12 +47,6 @@ const setLocale = (code: string) => {
           <RouterLink to="/download" class="nav-link" @click="isMenuOpen = false">
             {{ t('nav.download') }}
           </RouterLink>
-          <RouterLink to="/privacy" class="nav-link" @click="isMenuOpen = false">
-            {{ t('nav.privacy') }}
-          </RouterLink>
-          <RouterLink to="/terms" class="nav-link" @click="isMenuOpen = false">
-            {{ t('nav.terms') }}
-          </RouterLink>
         </nav>
 
         <div class="header-actions">
