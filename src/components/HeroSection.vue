@@ -29,11 +29,11 @@ const { t } = useI18n()
             </a>
           </div>
           
-          <div class="app-store-badge">
+          <!-- <div class="app-store-badge">
             <a href="https://apps.apple.com/app/anx-reader/id6743196413" target="_blank">
               <img src="/images/app-store-badge.svg" alt="Download on the App Store" />
             </a>
-          </div>
+          </div> -->
         </div>
         
         <div class="hero-image">

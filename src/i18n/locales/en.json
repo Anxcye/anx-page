@@ -58,7 +58,6 @@
     },
     "direct": {
       "title": "Direct Download",
-      "description": "Latest version for advanced users",
       "note": "Note: iOS and macOS versions require manual signing or developer account"
     },
     "platforms": {

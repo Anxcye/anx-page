@@ -58,7 +58,6 @@
     },
     "direct": {
       "title": "直接下載",
-      "description": "最新版本，適合進階使用者",
       "note": "注意：iOS 和 macOS 版本需要手動簽署或開發者帳戶"
     },
     "platforms": {

@@ -58,7 +58,6 @@
     },
     "direct": {
       "title": "直接ダウンロード",
-      "description": "上級ユーザー向けの最新版",
       "note": "注意：iOSとmacOSバージョンは手動署名または開発者アカウントが必要"
     },
     "platforms": {
