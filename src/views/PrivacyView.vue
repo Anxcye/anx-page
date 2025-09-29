@@ -37,7 +37,7 @@ const { locale } = useI18n()
           <p>我们可能不定期更新本隐私政策。您可通过定期访问此页面了解变更内容。更新后的政策将在发布后立即生效。</p>
 
           <h2>联系我们</h2>
-          <p>若您对本隐私政策有任何疑问，请通过以下邮箱联系我们：<a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
+          <p>若您对本隐私政策有任何疑问，请通过以下邮箱联系我们：<a href="mailto:anxfeedback@outlook.com">anxfeedback@outlook.com</a></p>
         </div>
         <div v-else class="policy-content">
           <h1>Privacy Policy</h1>
@@ -86,7 +86,7 @@ const { locale } = useI18n()
 
           <h2>Contact Us</h2>
           <p>If you have any questions about this Privacy Policy, please contact us via email at: <a
-              href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
+              href="mailto:anxfeedback@outlook.com">anxfeedback@outlook.com</a></p>
         </div>
       </div>
     </div>

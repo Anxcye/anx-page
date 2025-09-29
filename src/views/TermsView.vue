@@ -60,7 +60,7 @@ const { locale } = useI18n()
           <p>本条款受开发者所在地法律管辖，任何争议应提交至开发者所在地有管辖权的法院解决。</p>
 
           <h2>9. 联系我们</h2>
-          <p>如有疑问，请联系：<a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
+          <p>如有疑问，请联系：<a href="mailto:anxfeedback@outlook.com">anxfeedback@outlook.com</a></p>
         </div>
         <div v-else class="policy-content">
           <h1>Terms of Service</h1>
@@ -128,7 +128,7 @@ const { locale } = useI18n()
             jurisdiction over the developer's location.</p>
 
           <h2>9. Contact Us</h2>
-          <p>For questions, contact: <a href="mailto:anxcye@outlook.com">anxcye@outlook.com</a></p>
+          <p>For questions, contact: <a href="mailto:anxfeedback@outlook.com">anxfeedback@outlook.com</a></p>
         </div>
       </div>
     </div>
