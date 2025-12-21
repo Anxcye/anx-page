@@ -130,10 +130,7 @@ main {
   font-weight: 700;
   text-align: center;
   margin-bottom: 60px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-color);
 }
 
 @media (max-width: 768px) {

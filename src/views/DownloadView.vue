@@ -176,10 +176,7 @@ const platforms = computed<Platform[]>(() => [
   font-size: 48px;
   font-weight: 800;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-color);
 }
 
 .download-subtitle {

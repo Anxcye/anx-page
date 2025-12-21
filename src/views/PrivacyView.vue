@@ -112,13 +112,9 @@ const { locale } = useI18n()
 .policy-content h1 {
   font-size: 48px;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--primary-color);
   margin-bottom: 40px;
   text-align: center;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .policy-content h2 {
