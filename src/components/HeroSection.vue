@@ -1,54 +1,72 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { ref } from 'vue'
 
 const { t } = useI18n()
+
+const heroImage = ref<HTMLElement | null>(null)
+
+// Parallax effect for hero image
+const handleMouseMove = (e: MouseEvent) => {
+  if (!heroImage.value) return
+  
+  const { clientX, clientY } = e
+  const { innerWidth, innerHeight } = window
+  
+  const x = (clientX - innerWidth / 2) / 50
+  const y = (clientY - innerHeight / 2) / 50
+  
+  heroImage.value.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg) translateY(-10px)`
+}
+
+const resetTilt = () => {
+  if (!heroImage.value) return
+  heroImage.value.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0)'
+}
 </script>
 
 <template>
-  <section class="hero">
+  <section class="hero" @mousemove="handleMouseMove" @mouseleave="resetTilt">
+    <!-- Decorative background elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
     <div class="container">
       <div class="hero-content">
         <div class="hero-text">
-          <h1 class="hero-title">{{ t('hero.title') }}</h1>
-          <p class="hero-subtitle">{{ t('hero.subtitle') }}</p>
-          <p class="hero-description">{{ t('hero.description') }}</p>
+          <h1 class="hero-title animate-in delay-1">{{ t('hero.title') }}</h1>
+          <p class="hero-subtitle animate-in delay-2">{{ t('hero.subtitle') }}</p>
+          <p class="hero-description animate-in delay-3">{{ t('hero.description') }}</p>
           
-          
-          <div class="platform-badges">
-            
-            <router-link to="/download" class="platform-badge">
+          <div class="platform-badges animate-in delay-4">
+            <router-link to="/download" class="platform-badge" title="Android">
               <img src="/images/os-logo/android-logo.svg" alt="Android" />
               <span>Android</span>
             </router-link>
 
-            <router-link to="/download" class="platform-badge">
+            <router-link to="/download" class="platform-badge" title="HarmonyOS">
               <img src="/images/os-logo/hmos-logo.svg" alt="HarmonyOS" />
               <span>HarmonyOS</span>
             </router-link>
 
-            <router-link to="/download" class="platform-badge">
+            <router-link to="/download" class="platform-badge" title="iOS">
               <img src="/images/os-logo/apple-logo.svg" alt="iOS" />
               <span>iOS</span>
             </router-link>
             
-            <router-link to="/download" class="platform-badge">
+            <router-link to="/download" class="platform-badge" title="Windows">
               <img src="/images/os-logo/windows-logo.svg" alt="Windows" />
               <span>Windows</span>
             </router-link>
             
-            <router-link to="/download" class="platform-badge">
+            <router-link to="/download" class="platform-badge" title="macOS">
               <img src="/images/os-logo/apple-logo.svg" alt="macOS" />
               <span>macOS</span>
             </router-link>
           </div>
           
-          <!-- <div class="app-store-badge">
-            <a href="https://apps.apple.com/app/anx-reader/id6743196413" target="_blank">
-              <img src="/images/app-store-badge.svg" alt="Download on the App Store" />
-            </a>
-          </div> -->
-          <div class="hero-actions">
-            <router-link to="/download" class="btn btn-primary">
+          <div class="hero-actions animate-in delay-5">
+            <router-link to="/download" class="btn btn-primary glow-effect">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
               </svg>
@@ -64,8 +82,11 @@ const { t } = useI18n()
           </div>
         </div>
         
-        <div class="hero-image">
-          <img src="/images/app-preview.png" alt="Anx Reader Preview" />
+        <div class="hero-image-container animate-in delay-3" ref="heroImage">
+          <div class="hero-image-wrapper floating">
+            <img src="/images/app-preview.png" alt="Anx Reader Preview" class="hero-image" />
+            <div class="image-glow"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -74,11 +95,49 @@ const { t } = useI18n()
 
 <style scoped>
 .hero {
-  background: linear-gradient(135deg, var(--background-color), var(--surface-color));
+  background: var(--background-color);
   padding: 120px 0 80px;
   min-height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Blobs */
+.blob {
+  position: absolute;
+  filter: blur(80px);
+  z-index: 0;
+  opacity: 0.4;
+  animation: blob-bounce 10s infinite ease-in-out alternate;
+}
+
+.blob-1 {
+  top: -10%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+}
+
+.blob-2 {
+  bottom: -10%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+  animation-delay: -5s;
+}
+
+@keyframes blob-bounce {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, 30px) scale(1.1); }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content {
@@ -88,15 +147,47 @@ const { t } = useI18n()
   align-items: center;
 }
 
+/* Text Animations */
+.animate-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .hero-title {
   font-size: 64px;
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-flow 5s ease infinite;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .hero-subtitle {
@@ -120,6 +211,29 @@ const { t } = useI18n()
   margin-bottom: 40px;
 }
 
+/* Button Glow Effect */
+.glow-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.glow-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(45deg) translate(-100%, -100%);
+  animation: glow-sweep 3s infinite;
+}
+
+@keyframes glow-sweep {
+  0%, 100% { transform: rotate(45deg) translate(-100%, -100%); }
+  50% { transform: rotate(45deg) translate(100%, 100%); }
+}
+
 .platform-badges {
   display: flex;
   gap: 24px;
@@ -133,66 +247,101 @@ const { t } = useI18n()
   align-items: center;
   gap: 8px;
   padding: 16px 12px;
-  background: var(--surface-color);
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
-  transition: var(--transition);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 80px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .platform-badge:hover {
   background: var(--surface-hover);
   border-color: var(--primary-color);
-  transform: translateY(-2px);
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .platform-badge img {
-  height: 24px;
-  width: 24px;
+  height: 28px;
+  width: 28px;
   object-fit: contain;
-  transition: var(--transition);
+  transition: transform 0.3s ease;
 }
 
 .platform-badge:hover img {
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .platform-badge span {
   font-size: 12px;
   font-weight: 500;
   color: var(--text-secondary);
-  transition: var(--transition);
+  transition: color 0.3s ease;
 }
 
 .platform-badge:hover span {
-  color: var(--text-primary);
+  color: var(--primary-color);
 }
 
-.app-store-badge img {
-  height: 60px;
-  transition: var(--transition);
+/* Image 3D Container */
+.hero-image-container {
+  position: relative;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: transform 0.1s ease-out; /* Smooth follow mouse */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.app-store-badge a:hover img {
-  transform: scale(1.05);
+.hero-image-wrapper {
+  position: relative;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+  transform-style: preserve-3d;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .hero-image {
-  position: relative;
-}
-
-.hero-image img {
   width: 100%;
   height: auto;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  transition: var(--transition);
+  border-radius: 24px;
+  display: block;
+  transform: translateZ(20px);
 }
 
-.hero-image:hover img {
-  transform: translateY(-10px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+/* Ambient Glow behind image */
+.image-glow {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background: var(--primary-color);
+  filter: blur(60px);
+  opacity: 0.4;
+  z-index: -1;
+  transform: translateZ(-20px);
+}
+
+/* Continuous Floating Animation */
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Dark mode adjustments for glassmorphism */
+:root.dark .platform-badge {
+  background: rgba(30, 30, 30, 0.5);
 }
 
 @media (max-width: 1024px) {
@@ -216,6 +365,10 @@ const { t } = useI18n()
     margin-left: auto;
     margin-right: auto;
   }
+
+  .platform-badges, .hero-actions {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
@@ -227,40 +380,12 @@ const { t } = useI18n()
     font-size: 36px;
   }
   
-  .hero-subtitle {
-    font-size: 20px;
+  .blob {
+    opacity: 0.2; /* Reduce distraction on mobile */
   }
   
-  .hero-description {
-    font-size: 16px;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .app-store-badge img {
-    height: 50px;
-  }
-  
-  .platform-badges {
-    justify-content: center;
-    gap: 16px;
-  }
-  
-  .platform-badge {
-    padding: 12px 8px;
-    min-width: 70px;
-  }
-  
-  .platform-badge svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .platform-badge span {
-    font-size: 11px;
+  .hero-image-container {
+    perspective: none; /* Disable 3D tilt on mobile */
   }
 }
 </style>
