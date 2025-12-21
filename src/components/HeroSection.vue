@@ -16,30 +16,30 @@ const { t } = useI18n()
           
           <div class="platform-badges">
             
-            <div class="platform-badge">
+            <router-link to="/download" class="platform-badge">
               <img src="/images/os-logo/android-logo.svg" alt="Android" />
               <span>Android</span>
-            </div>
+            </router-link>
 
-            <div class="platform-badge">
+            <router-link to="/download" class="platform-badge">
               <img src="/images/os-logo/hmos-logo.svg" alt="HarmonyOS" />
               <span>HarmonyOS</span>
-            </div>
+            </router-link>
 
-            <div class="platform-badge">
+            <router-link to="/download" class="platform-badge">
               <img src="/images/os-logo/apple-logo.svg" alt="iOS" />
               <span>iOS</span>
-            </div>
+            </router-link>
             
-            <div class="platform-badge">
+            <router-link to="/download" class="platform-badge">
               <img src="/images/os-logo/windows-logo.svg" alt="Windows" />
               <span>Windows</span>
-            </div>
+            </router-link>
             
-            <div class="platform-badge">
+            <router-link to="/download" class="platform-badge">
               <img src="/images/os-logo/apple-logo.svg" alt="macOS" />
               <span>macOS</span>
-            </div>
+            </router-link>
           </div>
           
           <!-- <div class="app-store-badge">
@@ -138,6 +138,7 @@ const { t } = useI18n()
   border-radius: 12px;
   transition: var(--transition);
   min-width: 80px;
+  text-decoration: none;
 }
 
 .platform-badge:hover {
