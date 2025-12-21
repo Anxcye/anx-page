@@ -61,10 +61,35 @@
       "note": "注意：iOS 和 macOS 版本需要手动签名或开发者账户"
     },
     "platforms": {
-      "android": "安卓",
+      "android": "Android",
       "ios": "iOS",
       "macos": "macOS",
       "windows": "Windows"
+    },
+    "actions": {
+      "android": {
+        "universal": "下载通用 .apk",
+        "arm64": "下载 64位 (arm64-v8a) .apk",
+        "armv7": "下载 32位 (armeabi-v7a) .apk",
+        "x86": "下载 x86_64 .apk"
+      },
+      "ios": {
+        "appStore": "前往 App Store 下载",
+        "unsigned_ipa": "下载未签名 .ipa",
+        "unsigned_zip": "下载未签名 .zip"
+      },
+      "macos": {
+        "appStore": "前往 App Store 下载",
+        "dmg": "下载 .dmg 镜像",
+        "zip": "下载 .zip 压缩包"
+      },
+      "windows": {
+        "exe": "下载 .exe 安装包",
+        "zip": "下载 .zip 压缩包"
+      },
+      "harmonyos": {
+        "appGallery": "前往应用市场下载"
+      }
     }
   },
   "footer": {

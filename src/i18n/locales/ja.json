@@ -65,6 +65,31 @@
       "ios": "iOS",
       "macos": "macOS",
       "windows": "Windows"
+    },
+    "actions": {
+      "android": {
+        "universal": "汎用 .apk をダウンロード",
+        "arm64": "64ビット (arm64-v8a) .apk をダウンロード",
+        "armv7": "32ビット (armeabi-v7a) .apk をダウンロード",
+        "x86": "x86_64 .apk をダウンロード"
+      },
+      "ios": {
+        "appStore": "App Store でダウンロード",
+        "unsigned_ipa": "未署名の .ipa をダウンロード",
+        "unsigned_zip": "未署名の .zip をダウンロード"
+      },
+      "macos": {
+        "appStore": "App Store でダウンロード",
+        "dmg": ".dmg イメージをダウンロード",
+        "zip": ".zip アーカイブをダウンロード"
+      },
+      "windows": {
+        "exe": ".exe インストーラをダウンロード",
+        "zip": ".zip アーカイブをダウンロード"
+      },
+      "harmonyos": {
+        "appGallery": "AppGallery からダウンロード"
+      }
     }
   },
   "footer": {

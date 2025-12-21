@@ -65,6 +65,31 @@
       "ios": "iOS",
       "macos": "macOS",
       "windows": "Windows"
+    },
+    "actions": {
+      "android": {
+        "universal": "下載通用 .apk",
+        "arm64": "下載 64位元 (arm64-v8a) .apk",
+        "armv7": "下載 32位元 (armeabi-v7a) .apk",
+        "x86": "下載 x86_64 .apk"
+      },
+      "ios": {
+        "appStore": "前往 App Store 下載",
+        "unsigned_ipa": "下載未簽署 .ipa",
+        "unsigned_zip": "下載未簽署 .zip"
+      },
+      "macos": {
+        "appStore": "前往 App Store 下載",
+        "dmg": "下載 .dmg 映像檔",
+        "zip": "下載 .zip 壓縮檔"
+      },
+      "windows": {
+        "exe": "下載 .exe 安裝檔",
+        "zip": "下載 .zip 壓縮檔"
+      },
+      "harmonyos": {
+        "appGallery": "前往應用程式市場下載"
+      }
     }
   },
   "footer": {

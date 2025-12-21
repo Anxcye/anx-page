@@ -1,52 +1,114 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const platforms = [
+interface DownloadItem {
+  label: string
+  url: string
+  primary?: boolean
+  external?: boolean
+}
+
+interface Platform {
+  name: string
+  icon: string
+  items: DownloadItem[]
+}
+
+const platforms = computed<Platform[]>(() => [
   {
     name: 'Android',
-    variants: [
-      { name: 'Universal', endpoint: 'android-universal' },
-      { name: 'ARM64', endpoint: 'android-arm64-v8a' },
-      { name: 'ARMv7', endpoint: 'android-armeabi-v7a' },
-      { name: 'x86_64', endpoint: 'android-x86_64' }
-    ],
-    icon: '/images/os-logo/android-logo.svg'
+    icon: '/images/os-logo/android-logo.svg',
+    items: [
+      { 
+        label: t('download.actions.android.universal'), 
+        url: 'https://api.anx.anxcye.com/api/latest/android-universal',
+        primary: true 
+      },
+      { 
+        label: t('download.actions.android.arm64'), 
+        url: 'https://api.anx.anxcye.com/api/latest/android-arm64-v8a' 
+      },
+      { 
+        label: t('download.actions.android.armv7'), 
+        url: 'https://api.anx.anxcye.com/api/latest/android-armeabi-v7a' 
+      },
+      { 
+        label: t('download.actions.android.x86'), 
+        url: 'https://api.anx.anxcye.com/api/latest/android-x86_64' 
+      }
+    ]
   },
   {
     name: 'HarmonyOS',
-    variants: [],
     icon: '/images/os-logo/hmos-logo.svg',
-    hasAppGallery: true
+    items: [
+      {
+        label: t('download.actions.harmonyos.appGallery'),
+        url: 'https://appgallery.huawei.com/app/detail?id=com.anxcye.anxreader',
+        primary: true,
+        external: true
+      }
+    ]
   },
   {
     name: 'iOS',
-    variants: [
-      { name: 'Unsigned IPA', endpoint: 'ios-unsigned-ipa' },
-      { name: 'Unsigned ZIP', endpoint: 'ios-unsigned-zip' }
-    ],
     icon: '/images/os-logo/apple-logo.svg',
-    hasAppStore: true
+    items: [
+      {
+        label: t('download.actions.ios.appStore'),
+        url: 'https://apps.apple.com/app/anx-reader/id6743196413',
+        primary: true,
+        external: true
+      },
+      {
+        label: t('download.actions.ios.unsigned_ipa'),
+        url: 'https://api.anx.anxcye.com/api/latest/ios-unsigned-ipa'
+      },
+      {
+        label: t('download.actions.ios.unsigned_zip'),
+        url: 'https://api.anx.anxcye.com/api/latest/ios-unsigned-zip'
+      }
+    ]
   },
   {
     name: 'macOS',
-    variants: [
-      { name: 'DMG', endpoint: 'macos-dmg' },
-      { name: 'ZIP', endpoint: 'macos-zip' }
-    ],
     icon: '/images/os-logo/apple-logo.svg',
-    hasAppStore: true
+    items: [
+      {
+        label: t('download.actions.macos.appStore'),
+        url: 'https://apps.apple.com/app/anx-reader/id6743196413',
+        primary: true,
+        external: true
+      },
+      {
+        label: t('download.actions.macos.dmg'),
+        url: 'https://api.anx.anxcye.com/api/latest/macos-dmg'
+      },
+      {
+        label: t('download.actions.macos.zip'),
+        url: 'https://api.anx.anxcye.com/api/latest/macos-zip'
+      }
+    ]
   },
   {
     name: 'Windows',
-    variants: [
-      { name: 'EXE', endpoint: 'windows-exe' },
-      { name: 'ZIP', endpoint: 'windows-zip' }
-    ],
-    icon: '/images/os-logo/windows-logo.svg'
+    icon: '/images/os-logo/windows-logo.svg',
+    items: [
+      {
+        label: t('download.actions.windows.exe'),
+        url: 'https://api.anx.anxcye.com/api/latest/windows-exe',
+        primary: true
+      },
+      {
+        label: t('download.actions.windows.zip'),
+        url: 'https://api.anx.anxcye.com/api/latest/windows-zip'
+      }
+    ]
   }
-]
+])
 </script>
 
 <template>
@@ -55,27 +117,11 @@ const platforms = [
       <div class="container">
         <h1 class="download-title">{{ t('download.title') }}</h1>
         <p class="download-subtitle">{{ t('download.subtitle') }}</p>
-        
-        <div class="download-buttons-section">
-          <a href="https://github.com/anxcye/anx-reader/releases/latest" target="_blank" class="download-badge-button">
-            <img src="/images/github-badge.png" alt="Download from GitHub" />
-          </a>
-          <a href="https://apps.apple.com/app/anx-reader/id6743196413" target="_blank" class="download-badge-button">
-            <img src="/images/app-store-badge.svg" alt="Download on the App Store" />
-          </a>
-          <a href="https://appgallery.huawei.com/app/detail?id=com.anxcye.anxreader" target="_blank" class="download-badge-button">
-            <img src="/images/os-logo/app-gallery-badge.svg" alt="Download from AppGallery" />
-          </a>
-        </div>
       </div>
     </div>
 
     <div class="download-content">
       <div class="container">
-        <div class="direct-download-section">
-          <h2>{{ t('download.direct.title') }}</h2>
-        </div>
-
         <div class="platforms-grid">
           <div v-for="platform in platforms" :key="platform.name" class="platform-card">
             <div class="platform-header">
@@ -85,31 +131,25 @@ const platforms = [
               <h3>{{ platform.name }}</h3>
             </div>
 
-            <div v-if="platform.hasAppGallery" class="app-gallery-section">
-              <a href="https://appgallery.huawei.com/app/detail?id=com.anxcye.anxreader" target="_blank" class="app-store-button">
-                <img src="/images/os-logo/app-gallery-badge.svg" alt="Download from AppGallery" />
-              </a>
-            </div>
-
-            <!-- App Store button for iOS -->
-            <div v-if="platform.hasAppStore" class="app-store-section">
-              <a href="https://apps.apple.com/app/anx-reader/id6743196413" target="_blank" class="app-store-button">
-                <img src="/images/app-store-badge.svg" alt="Download on the App Store" />
-              </a>
-            </div>
-            
-            <div class="platform-variants">
+            <div class="platform-items">
               <a 
-                v-for="variant in platform.variants" 
-                :key="variant.endpoint"
-                :href="`https://api.anx.anxcye.com/api/latest/${variant.endpoint}`"
-                download
-                class="download-button"
+                v-for="item in platform.items" 
+                :key="item.url"
+                :href="item.url"
+                :target="item.external ? '_blank' : undefined"
+                :download="!item.external"
+                class="download-item-button"
+                :class="{ 'is-primary': item.primary }"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <span class="button-label">{{ item.label }}</span>
+                <svg v-if="item.external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+                <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
-                {{ variant.name }}
               </a>
             </div>
           </div>
@@ -125,191 +165,140 @@ const platforms = [
 }
 
 .download-hero {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: white;
-  padding: 80px 0;
+  background: linear-gradient(135deg, var(--background-color), var(--surface-color));
+  color: var(--text-primary);
+  padding: 80px 0 40px;
   text-align: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .download-title {
   font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 20px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .download-subtitle {
   font-size: 20px;
-  opacity: 0.9;
-  margin-bottom: 60px;
-}
-
-.download-buttons-section {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.download-badge-button img {
-  height: 60px;
-  transition: var(--transition);
-}
-
-.download-badge-button:hover img {
-  transform: scale(1.05);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0;
 }
 
 .download-content {
-  padding: 80px 0;
-}
-
-.direct-download-section {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.direct-download-section h2 {
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.direct-description {
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
+  padding: 60px 0;
 }
 
 .platforms-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
 }
 
 .platform-card {
   background-color: var(--surface-color);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 30px;
+  border-radius: 16px;
+  padding: 24px;
   transition: var(--transition);
+  display: flex;
+  flex-direction: column;
 }
 
 .platform-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: var(--shadow);
+  border-color: var(--primary-color);
 }
 
 .platform-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .platform-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--primary-color);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platform-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .platform-header h3 {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: var(--text-primary);
+  margin: 0;
 }
 
-.platform-variants {
+.platform-items {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex: 1;
 }
 
-.download-button {
+.download-item-button {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
   padding: 12px 16px;
   background-color: var(--background-color);
   border: 1px solid var(--border-color);
-  border-radius: 12px;
+  border-radius: 10px;
   color: var(--text-primary);
   cursor: pointer;
-  transition: var(--transition);
-  font-size: 14px;
-  font-weight: 500;
+  transition: all 0.2s ease;
   text-decoration: none;
+  font-size: 14px;
 }
 
-.download-button:hover {
+.download-item-button:hover {
+  background-color: var(--surface-hover);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateX(2px);
+}
+
+.download-item-button.is-primary {
   background-color: var(--primary-color);
   color: white;
-  transform: translateX(5px);
+  border-color: var(--primary-color);
+  font-weight: 500;
 }
 
-.app-store-section {
-  margin-top: 24px;
-  text-align: center;
+.download-item-button.is-primary:hover {
+  opacity: 0.9;
+  transform: translateX(2px);
+  box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
 }
 
-.divider {
-  height: 1px;
-  background-color: var(--border-color);
-  margin-bottom: 20px;
-}
-
-.app-store-section h4 {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.app-store-description {
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 16px;
-}
-
-.app-store-button img {
-  height: 40px;
-  transition: var(--transition);
-}
-
-.app-store-button:hover img {
-  transform: scale(1.05);
-}
-
-.direct-note {
-  font-size: 14px;
-  color: var(--text-secondary);
-  background-color: var(--background-color);
-  padding: 16px;
-  border-radius: 12px;
-  border-left: 4px solid var(--primary-color);
-  margin-top: 20px;
+.button-label {
+  flex: 1;
+  text-align: left;
 }
 
 @media (max-width: 768px) {
   .download-title {
-    font-size: 36px;
-  }
-  
-  .download-subtitle {
-    font-size: 18px;
-  }
-  
-  .download-buttons-section {
-    flex-direction: column;
-    align-items: center;
+    font-size: 32px;
   }
   
   .platforms-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .direct-download-section h2 {
-    font-size: 28px;
   }
 }
 </style>

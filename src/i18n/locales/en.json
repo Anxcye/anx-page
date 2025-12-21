@@ -65,6 +65,31 @@
       "ios": "iOS",
       "macos": "macOS",
       "windows": "Windows"
+    },
+    "actions": {
+      "android": {
+        "universal": "Download universal .apk",
+        "arm64": "Download 64-bit (arm64-v8a) .apk",
+        "armv7": "Download 32-bit (armeabi-v7a) .apk",
+        "x86": "Download x86_64 .apk"
+      },
+      "ios": {
+        "appStore": "Download on the App Store",
+        "unsigned_ipa": "Download unsigned .ipa",
+        "unsigned_zip": "Download unsigned .zip"
+      },
+      "macos": {
+        "appStore": "Download on the App Store",
+        "dmg": "Download .dmg image",
+        "zip": "Download .zip archive"
+      },
+      "windows": {
+        "exe": "Download .exe installer",
+        "zip": "Download .zip archive"
+      },
+      "harmonyos": {
+        "appGallery": "Download from AppGallery"
+      }
     }
   },
   "footer": {
