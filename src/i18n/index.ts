@@ -11,9 +11,27 @@ const messages = {
   ja
 }
 
+// Get browser locale
+const getBrowserLocale = () => {
+  const browserLang = navigator.language
+  
+  if (browserLang.startsWith('zh')) {
+    if (browserLang.includes('TW') || browserLang.includes('HK')) {
+      return 'zh-TW'
+    }
+    return 'zh-CN'
+  }
+  
+  if (browserLang.startsWith('ja')) {
+    return 'ja'
+  }
+  
+  return 'en'
+}
+
 export const i18n = createI18n({
   legacy: false,
-  locale: 'en',
+  locale: getBrowserLocale(),
   fallbackLocale: 'en',
   messages
 })
