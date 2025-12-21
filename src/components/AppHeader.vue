@@ -73,12 +73,22 @@ const setLocale = (code: string) => {
             </div>
           </div>
 
-          <button @click="$emit('toggleTheme')" class="theme-toggle">
-            <svg v-if="!isDark" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2.25l2.25 2.25-2.25 2.25L9.75 4.5 12 2.25zm0 4.5c3.15 0 5.7 2.55 5.7 5.7s-2.55 5.7-5.7 5.7-5.7-2.55-5.7-5.7 2.55-5.7 5.7-5.7zM21 11.25h-3v1.5h3v-1.5zm-15 0H3v1.5h3v-1.5zm13.5 7.5l-1.5-1.5-1.5 1.5 1.5 1.5 1.5-1.5zm-12 0L6 17.25 4.5 18.75 6 20.25 7.5 18.75zm12-12L19.5 5.25 18 3.75 16.5 5.25 18 6.75zm-12 0L7.5 5.25 6 3.75 4.5 5.25 6 6.75zM12 21.75l-2.25-2.25L12 17.25l2.25 2.25L12 21.75z"/>
+          <button @click="$emit('toggleTheme')" class="theme-toggle" :title="isDark ? 'Switch to Light Mode' : 'Switch to Dark Mode'">
+            <!-- Sun icon for light mode (shown when isDark is false) -->
+            <svg v-if="!isDark" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.25" x2="19.78" y2="4.22"></line>
             </svg>
-            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-5.52-4.48-10-10-10z"/>
+            <!-- Moon icon for dark mode (shown when isDark is true) -->
+            <svg v-else width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
           </button>
 
