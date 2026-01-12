@@ -13,10 +13,14 @@ export default defineConfig({
                     const logo = navBarTitle?.tagName === 'A' ? navBarTitle : navBarTitle?.querySelector('a');
                     if (logo && logo.getAttribute('href') !== '/') {
                         logo.setAttribute('href', '/');
+                        logo.setAttribute('target', '_self');
                         logo.addEventListener('click', (e) => {
+                            // Only intercept left click without modifiers
+                            if (e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) return;
+                            
                             e.preventDefault();
                             e.stopPropagation();
-                            window.location.href = '/';
+                            window.open('/', '_self');
                         }, { capture: true });
                     }
                 };
