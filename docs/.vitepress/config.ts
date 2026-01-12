@@ -9,7 +9,8 @@ export default defineConfig({
         ['script', {}, `
             (function() {
                 const callback = function() {
-                    const logo = document.querySelector('.VPNavBarTitle .title');
+                    const navBarTitle = document.querySelector('.VPNavBarTitle');
+                    const logo = navBarTitle?.tagName === 'A' ? navBarTitle : navBarTitle?.querySelector('a');
                     if (logo && logo.getAttribute('href') !== '/') {
                         logo.setAttribute('href', '/');
                         logo.addEventListener('click', (e) => {
