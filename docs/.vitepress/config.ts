@@ -7,17 +7,22 @@ export default defineConfig({
     base: '/docs/',
     head: [
         ['script', {}, `
-            window.addEventListener('load', () => {
-                const check = () => {
-                    const logo = document.querySelector('.VPNavBarTitle .title') || document.querySelector('.VPConfig .title')
-                    if (logo) {
-                        logo.setAttribute('href', '/')
-                    } else {
-                        setTimeout(check, 100)
+            (function() {
+                const callback = function() {
+                    const logo = document.querySelector('.VPNavBarTitle .title');
+                    if (logo && logo.getAttribute('href') !== '/') {
+                        logo.setAttribute('href', '/');
+                        logo.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.location.href = '/';
+                        }, { capture: true });
                     }
-                }
-                check()
-            })
+                };
+                const observer = new MutationObserver(callback);
+                observer.observe(document.documentElement, { childList: true, subtree: true });
+                window.addEventListener('load', callback);
+            })();
         `],
         ['style', {}, `
             .VPNavBarTitle .logo {
