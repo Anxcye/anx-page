@@ -7,21 +7,21 @@ If you don't have an Azure account, please sign up at the [Azure Website](https:
 
 ## Step 2: Create a Speech Resource
 1. Log in to the [Azure Portal](https://portal.azure.com/).
-2. Click **"Create a resource"**.
-3. Search for **"Speech"** and select the **"Speech"** service.
-4. Click **"Create"**.
-5. Fill in the following information:
+2. Search for **"Speech service"** in the top search bar.
+3. Click **"Create"**.
+4. Fill in the following information:
     *   **Subscription**: Select your subscription.
     *   **Resource group**: Create new or select an existing one.
     *   **Region**: Select a region close to you (remember this, you will need it later).
     *   **Name**: Name your resource.
     *   **Pricing tier**: Usually select **F0 (Free)**, or S0 if you need higher quotas.
-6. Click **"Review + create"**, then click **"Create"**.
+5. Click **"Review + create"**, then click **"Create"**.
 
 ## Step 3: Get Key and Region
 1. Once deployment is complete, click **"Go to resource"**.
-2. In the left menu, under **"Resource Management"**, find **"Keys and Endpoint"**.
-3. Here you will see:
+2. Click the name of the resource you just created.
+3. In the left menu, under **"Resource Management"**, find **"Keys and Endpoint"**.
+4. Here you will see:
     *   **Key 1**: This is the **Key** you need to enter in Anx Reader.
     *   **Location/Region**: e.g., `eastus`, `japaneast`, etc. This is the **Region** you need to enter in Anx Reader.
 
