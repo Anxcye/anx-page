@@ -5,52 +5,28 @@ export default defineConfig({
     title: "Anx Reader Docs",
     description: "A documentation site for Anx Reader",
     base: '/docs/',
-    head: [
-        ['script', {}, `
-            (function() {
-                const callback = function() {
-                    const navBarTitle = document.querySelector('.VPNavBarTitle');
-                    const logo = navBarTitle?.tagName === 'A' ? navBarTitle : navBarTitle?.querySelector('a');
-                    if (logo && logo.getAttribute('href') !== '/') {
-                        logo.setAttribute('href', '/');
-                        logo.setAttribute('target', '_self');
-                        logo.addEventListener('click', (e) => {
-                            // Only intercept left click without modifiers
-                            if (e.button !== 0 || e.ctrlKey || e.shiftKey || e.altKey || e.metaKey) return;
-                            
-                            e.preventDefault();
-                            e.stopPropagation();
-                            window.open('/', '_self');
-                        }, { capture: true });
-                    }
-                };
-                const observer = new MutationObserver(callback);
-                observer.observe(document.documentElement, { childList: true, subtree: true });
-                window.addEventListener('load', callback);
-            })();
-        `],
-        ['style', {}, `
-            .VPNavBarTitle .logo {
-                border-radius: 8px !important;
-            }
-        `]
-    ],
+    cleanUrls: true,
 
     locales: {
-        root: {
+        zh: {
             label: '简体中文',
             lang: 'zh-CN',
             link: '/zh/',
             themeConfig: {
                 nav: [
                     { text: '首页', link: '/zh/' },
-                    { text: '指南', link: '/zh/guide/' }
                 ],
                 sidebar: [
                     {
-                        text: '指南',
+                        text: '介绍',
                         items: [
-                            { text: '开始使用', link: '/zh/guide/' }
+                            { text: '简介', link: '/zh' }
+                        ]
+                    },
+                    {
+                        text: 'TTS',
+                        items: [
+                            { text: 'Azure', link: '/zh/tts/azure' }
                         ]
                     }
                 ]
@@ -63,13 +39,18 @@ export default defineConfig({
             themeConfig: {
                 nav: [
                     { text: 'Home', link: '/en/' },
-                    { text: 'Guide', link: '/en/guide/' }
                 ],
                 sidebar: [
                     {
-                        text: 'Guide',
+                        text: 'Introduction',
                         items: [
-                            { text: 'Getting Started', link: '/en/guide/' }
+                            { text: 'Getting Started', link: '/en/' }
+                        ]
+                    },
+                    {
+                        text: 'TTS',
+                        items: [
+                            { text: 'Azure', link: '/en/tts/azure' }
                         ]
                     }
                 ]
