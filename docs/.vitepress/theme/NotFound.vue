@@ -8,7 +8,8 @@ if (typeof window !== 'undefined') {
   const path = window.location.pathname
   const base = '/docs/'
   
-  if (!path.startsWith(base + 'en/') && !path.startsWith(base + 'zh/')) {
+  // Only process paths that are within the /docs/ directory
+  if (path.startsWith(base) && !path.startsWith(base + 'en/') && !path.startsWith(base + 'zh/')) {
       const userLang = navigator.language || (navigator as any).userLanguage
       const targetLang = userLang.startsWith('zh') ? 'zh' : 'en'
       const remainder = path.slice(base.length) 
