@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeMount, onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import { withBase } from 'vitepress'
 
 const isRedirecting = ref(false)
@@ -8,8 +8,7 @@ if (typeof window !== 'undefined') {
   const path = window.location.pathname
   const base = '/docs/'
   
-  // Only process paths that are within the /docs/ directory
-  if (path.startsWith(base) && !path.startsWith(base + 'en/') && !path.startsWith(base + 'zh/')) {
+  if (!path.startsWith(base + 'en/') && !path.startsWith(base + 'zh/')) {
       const userLang = navigator.language || (navigator as any).userLanguage
       const targetLang = userLang.startsWith('zh') ? 'zh' : 'en'
       const remainder = path.slice(base.length) 

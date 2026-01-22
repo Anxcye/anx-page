@@ -2,7 +2,11 @@
   "cleanUrls": true,
   "rewrites": [
     {
-      "source": "/((?!docs/).*)",
+      "source": "/docs/:path*",
+      "destination": "/docs/:path*"
+    },
+    {
+      "source": "/:path((?!docs/).*)",
       "destination": "/index.html"
     }
   ]

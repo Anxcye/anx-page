@@ -4,8 +4,6 @@ import { h } from 'vue'
 
 import './style.css'
 
-console.log('>>> CUSTOM THEME LOADED <<<')
-
 export default {
     extends: DefaultTheme,
     Layout() {
@@ -13,5 +11,4 @@ export default {
             'not-found': () => h(NotFound)
         })
     }
-
 }
