@@ -52,6 +52,10 @@
   "download": {
     "title": "Download Anx Reader",
     "subtitle": "Choose your platform",
+    "notice": "Versions marked with {icon} require a one-time purchase. Others are free. There is no difference in functionality.",
+    "tags": {
+      "paid": "One-time Purchase"
+    },
     "appStore": {
       "title": "App Store",
       "description": "Official release with automatic updates",

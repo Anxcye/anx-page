@@ -51,6 +51,10 @@
   "download": {
     "title": "Anx Readerをダウンロード",
     "subtitle": "プラットフォームを選択",
+    "notice": "{icon} が付いているバージョンは買い切り型です。その他は無料で利用できます。機能に違いはありません。",
+    "tags": {
+      "paid": "買い切り"
+    },
     "appStore": {
       "title": "App Store",
       "description": "公式リリース、自動更新",

@@ -9,6 +9,7 @@ interface DownloadItem {
   url: string
   primary?: boolean
   external?: boolean
+  tag?: 'free' | 'paid'
 }
 
 interface Platform {
@@ -61,7 +62,8 @@ const platforms = computed<Platform[]>(() => [
         label: t('download.actions.ios.appStore'),
         url: 'https://apps.apple.com/app/anx-reader/id6743196413',
         primary: true,
-        external: true
+        external: true,
+        tag: 'paid'
       },
       {
         label: t('download.actions.ios.unsigned_ipa'),
@@ -81,7 +83,8 @@ const platforms = computed<Platform[]>(() => [
         label: t('download.actions.macos.appStore'),
         url: 'https://apps.apple.com/app/anx-reader/id6743196413',
         primary: true,
-        external: true
+        external: true,
+        tag: 'paid'
       },
       {
         label: t('download.actions.macos.dmg'),
@@ -117,6 +120,27 @@ const platforms = computed<Platform[]>(() => [
       <div class="container">
         <h1 class="download-title">{{ t('download.title') }}</h1>
         <p class="download-subtitle">{{ t('download.subtitle') }}</p>
+        
+        <div class="pricing-info-card">
+          <div class="info-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+          </div>
+          <p class="info-text">
+            <i18n-t keypath="download.notice" tag="span">
+              <template #icon>
+                <span class="inline-badge-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                  </svg>
+                </span>
+              </template>
+            </i18n-t>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -141,13 +165,22 @@ const platforms = computed<Platform[]>(() => [
                 class="download-item-button"
                 :class="{ 'is-primary': item.primary }"
               >
-                <span class="button-label">{{ item.label }}</span>
-                <svg v-if="item.external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <div class="button-content">
+                  <span class="button-label">{{ item.label }}</span>
+                  <div v-if="item.tag" class="badge-row">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    </svg>
+                    <span>{{ t(`download.tags.${item.tag}`) }}</span>
+                  </div>
+                </div>
+                
+                <svg v-if="item.external" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="action-icon">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                   <polyline points="15 3 21 3 21 9"></polyline>
                   <line x1="10" y1="14" x2="21" y2="3"></line>
                 </svg>
-                <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <svg v-else width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="action-icon">
                   <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
                 </svg>
               </a>
@@ -184,6 +217,34 @@ const platforms = computed<Platform[]>(() => [
   font-weight: 500;
   color: var(--text-secondary);
   margin-bottom: 0;
+}
+
+.pricing-info-card {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 16px 20px;
+  background-color: var(--surface-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.5;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.info-icon-wrapper {
+  color: var(--primary-color);
+  display: flex;
+  margin-top: 2px;
+}
+
+.info-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin: 0;
 }
 
 .download-content {
@@ -284,9 +345,51 @@ const platforms = computed<Platform[]>(() => [
   box-shadow: 0 4px 12px rgba(var(--primary-color-rgb), 0.2);
 }
 
-.button-label {
+.button-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   text-align: left;
+}
+
+.button-label {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.badge-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Ensure high contrast in primary button */
+.download-item-button.is-primary .badge-row {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.inline-badge-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: -2px;
+  color: var(--primary-color);
+  margin: 0 2px;
+}
+
+.action-icon {
+  opacity: 0.7;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+.download-item-button:hover .action-icon {
+  opacity: 1;
 }
 
 @media (max-width: 768px) {

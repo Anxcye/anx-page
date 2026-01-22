@@ -51,6 +51,10 @@
   "download": {
     "title": "下載 Anx Reader",
     "subtitle": "選擇您的平台",
+    "notice": "標有 {icon} 的版本需要一次性付費購買。未標註版本為免費使用。兩者功能沒有任何區別。",
+    "tags": {
+      "paid": "付費版本"
+    },
     "appStore": {
       "title": "App Store",
       "description": "官方發佈版，自動更新",
