@@ -28,6 +28,14 @@ export default defineConfig({
                         items: [
                             { text: 'Azure', link: '/zh/tts/azure' }
                         ]
+                    },
+                    {
+                        text: '翻译',
+                        items: [
+                            { text: 'Azure', link: '/zh/translate/azure' },
+                            { text: 'Google', link: '/zh/translate/google' },
+                            { text: 'DeepL', link: '/zh/translate/deepl' }
+                        ]
                     }
                 ]
             }
@@ -51,6 +59,14 @@ export default defineConfig({
                         text: 'TTS',
                         items: [
                             { text: 'Azure', link: '/en/tts/azure' }
+                        ]
+                    },
+                    {
+                        text: 'Translate',
+                        items: [
+                            { text: 'Azure', link: '/en/translate/azure' },
+                            { text: 'Google', link: '/en/translate/google' },
+                            { text: 'DeepL', link: '/en/translate/deepl' }
                         ]
                     }
                 ]
