@@ -1,13 +1,1 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/docs/:path*",
-      "destination": "/docs/404.html"
-    },
-    {
-      "source": "/:path*",
-      "destination": "/index.html"
-    }
-  ]
-}
+{}
