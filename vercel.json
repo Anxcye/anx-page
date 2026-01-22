@@ -1,13 +1,16 @@
 {
   "cleanUrls": true,
-  "rewrites": [
+  "routes": [
     {
-      "source": "/docs/((?!en/|zh/).*)",
-      "destination": "/docs/404.html"
+      "handle": "filesystem"
     },
     {
-      "source": "/((?!docs/).*)",
-      "destination": "/index.html"
+      "src": "/docs/(.*)",
+      "dest": "/docs/404.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
     }
   ]
 }
