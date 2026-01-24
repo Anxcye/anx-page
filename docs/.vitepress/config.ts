@@ -36,6 +36,12 @@ export default defineConfig({
                             { text: 'Google', link: '/zh/translate/google' },
                             { text: 'DeepL', link: '/zh/translate/deepl' }
                         ]
+                    },
+                    {
+                        text: '同步',
+                        items: [
+                            { text: 'WebDAV', link: '/zh/sync/webdav' }
+                        ]
                     }
                 ]
             }
@@ -67,6 +73,12 @@ export default defineConfig({
                             { text: 'Azure', link: '/en/translate/azure' },
                             { text: 'Google', link: '/en/translate/google' },
                             { text: 'DeepL', link: '/en/translate/deepl' }
+                        ]
+                    },
+                    {
+                        text: 'Sync',
+                        items: [
+                            { text: 'WebDAV', link: '/en/sync/webdav' }
                         ]
                     }
                 ]
