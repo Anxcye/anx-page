@@ -8,7 +8,7 @@ Anx Reader 内置了多种 AI 模型的接口支持，您可以配置它们来�
 - Claude
 - DeepSeek
 - OpenRouter
-- LongCat
+- OpenAI 兼容模型
 
 ## 配置步骤
 

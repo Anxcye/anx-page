@@ -8,7 +8,7 @@ Currently supported AI services include:
 - Claude
 - DeepSeek
 - OpenRouter
-- LongCat
+- OpenAI Compatible Model
 
 ## Configuration Steps
 
