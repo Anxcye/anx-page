@@ -42,6 +42,18 @@ export default defineConfig({
                         items: [
                             { text: 'WebDAV', link: '/zh/sync/webdav' }
                         ]
+                    },
+                    {
+                        text: 'AI',
+                        items: [
+                            { text: '配置指南', link: '/zh/ai/' },
+                            { text: 'OpenAI', link: '/zh/ai/openai' },
+                            { text: 'Gemini', link: '/zh/ai/gemini' },
+                            { text: 'Claude', link: '/zh/ai/claude' },
+                            { text: 'DeepSeek', link: '/zh/ai/deepseek' },
+                            { text: 'OpenRouter', link: '/zh/ai/openrouter' },
+                            { text: 'LongCat', link: '/zh/ai/longcat' }
+                        ]
                     }
                 ]
             }
@@ -79,6 +91,18 @@ export default defineConfig({
                         text: 'Sync',
                         items: [
                             { text: 'WebDAV', link: '/en/sync/webdav' }
+                        ]
+                    },
+                    {
+                        text: 'AI',
+                        items: [
+                            { text: 'Configuration', link: '/en/ai/' },
+                            { text: 'OpenAI', link: '/en/ai/openai' },
+                            { text: 'Gemini', link: '/en/ai/gemini' },
+                            { text: 'Claude', link: '/en/ai/claude' },
+                            { text: 'DeepSeek', link: '/en/ai/deepseek' },
+                            { text: 'OpenRouter', link: '/en/ai/openrouter' },
+                            { text: 'LongCat', link: '/en/ai/longcat' }
                         ]
                     }
                 ]
