@@ -11,7 +11,7 @@
 ## 2. 确认 URL
 
 Gemini 的官方 API 地址通常为：
-`https://generativelanguage.googleapis.com/v1beta`
+`https://generativelanguage.googleapis.com`
 
 Anx Reader 可能会默认处理部分 URL，但建议填入上述完整的基础 URL。
 
@@ -27,7 +27,7 @@ Anx Reader 可能会默认处理部分 URL，但建议填入上述完整的基�
 ## 4. 填入配置
 
 回到 Anx Reader 的 AI 设置页面：
--   **URL**: 填入 `https://generativelanguage.googleapis.com/v1beta`
+-   **URL**: 填入 `https://generativelanguage.googleapis.com`
 -   **API Key**: 填入步骤 1 获取的 Key
 -   **Model**: 填入步骤 3 选择的模型名称
 

@@ -11,7 +11,7 @@
 ## 2. Confirm URL
 
 The official API address for Gemini is usually:
-`https://generativelanguage.googleapis.com/v1beta`
+`https://generativelanguage.googleapis.com`
 
 Anx Reader may treat some URLs by default, but it is recommended to fill in the full base URL above.
 
@@ -27,7 +27,7 @@ You can view more models at [Gemini Models](https://ai.google.dev/models/gemini)
 ## 4. Fill in Configuration
 
 Back to the AI settings page of Anx Reader:
--   **URL**: Enter `https://generativelanguage.googleapis.com/v1beta`
+-   **URL**: Enter `https://generativelanguage.googleapis.com`
 -   **API Key**: Enter the Key obtained in step 1
 -   **Model**: Enter the model name selected in step 3
 
