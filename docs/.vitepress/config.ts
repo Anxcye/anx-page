@@ -26,7 +26,8 @@ export default defineConfig({
                     {
                         text: 'TTS',
                         items: [
-                            { text: 'Azure', link: '/zh/tts/azure' }
+                            { text: 'Azure', link: '/zh/tts/azure' },
+                            { text: 'OpenAI', link: '/zh/tts/openai' }
                         ]
                     },
                     {
@@ -76,7 +77,8 @@ export default defineConfig({
                     {
                         text: 'TTS',
                         items: [
-                            { text: 'Azure', link: '/en/tts/azure' }
+                            { text: 'Azure', link: '/en/tts/azure' },
+                            { text: 'OpenAI', link: '/en/tts/openai' }
                         ]
                     },
                     {
