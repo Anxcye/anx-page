@@ -26,6 +26,7 @@ export default defineConfig({
                     {
                         text: 'TTS',
                         items: [
+                            { text: '阿里云', link: '/zh/tts/aliyun' },
                             { text: 'Azure', link: '/zh/tts/azure' },
                             { text: 'OpenAI', link: '/zh/tts/openai' }
                         ]
@@ -77,6 +78,7 @@ export default defineConfig({
                     {
                         text: 'TTS',
                         items: [
+                            { text: 'Aliyun', link: '/en/tts/aliyun' },
                             { text: 'Azure', link: '/en/tts/azure' },
                             { text: 'OpenAI', link: '/en/tts/openai' }
                         ]
